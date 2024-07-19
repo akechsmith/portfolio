@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Blog{% endblock title %}
+
+{% block content %}
+<div class='bg-gray-800 text-white p-5 md:py-8 md:px-20 lg:px-40 xl:px-60'>
+    <p style="font-family: Poppins-Bold" class='text-4xl font-extrabold py-5 text-center md:text-start'>Create New Blog</p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class='mb-4'>
+            <label for="id_title" class='block text-white'>Title</label>
+            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg text-white' type="text" name="title" id="id_title" placeholder="Title">
+        </div>
+        <div class='mb-4'>
+            <label for="id_meta" class='block text-white'>Meta</label>
+            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg text-white' type="text" name="meta" id="id_meta" placeholder="Meta">
+        </div>
+        <div class='mb-4'>
+            <label for="id_content" class='block text-white'>Content</label>
+            <textarea class='p-3 resize-none w-full h-72 my-2 bg-gray-900 border-slate-700 rounded-lg text-white custom-content' name="content" id="id_content" placeholder="Content"></textarea>
+        </div>
+        <div class='mb-4'>
+            <label for="id_thumbnail_url" class='block text-white'>Thumbnail URL</label>
+            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg text-white' type="text" name="thumbnail_url" id="id_thumbnail_url" placeholder="Thumbnail URL">
+        </div>
+        <div class='mb-4'>
+            <label for="id_category" class='block text-white'>Category</label>
+            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg text-white' type="text" name="category" id="id_category" placeholder="Category">
+        </div>
+        <button type="submit" class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'> 
+            Submit
+        </button>
+    </form>
+</div>
+{% endblock %}
