@@ -20,6 +20,26 @@ def about (request):
     return render(request, 'about.html')
 
 def contact(request): 
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        message = request.POST.get('message')
+
+        # Construct the email content
+        subject = f"New Contact Form Submission from {name}"
+        message_body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage:\n{message}"
+        
+        # Send the email
+        send_mail(
+            subject,
+            message_body,
+            email,  # From email
+            ['akdauatem@gmail.com'],  # To email
+            fail_silently=False,
+        )
+        messages.success(request, 'Your message has been sent successfully.')
+        return redirect('contact')  # Redirect to the contact page or a thank you page
     return render(request, 'contact.html')
 
 def blog(request):

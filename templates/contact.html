@@ -16,7 +16,7 @@
     </div>
     {% endif %}
 
-    <form class='flex-col p-5' action="/contact" name="contactForm" method="POST" onsubmit="return validateForm()">
+    <form class='flex-col p-5' action="/contact/" method="POST">
         {% csrf_token %}
         <div class='name'>
             <label for="name">Name</label><br>
@@ -24,7 +24,7 @@
         </div>
         <div class='email'>
             <label for="email">Email</label><br>
-            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg' type="text" id="email" placeholder="Your Email" name="email">
+            <input class='p-3 w-full my-2 bg-gray-900 border-slate-700 rounded-lg' type="email" id="email" placeholder="Your Email" name="email">
         </div>
         <div class='phone'>
             <label for="phone">Phone</label><br>
@@ -34,7 +34,9 @@
             <label for="message">Message</label><br>
             <textarea class='p-3 resize-none w-full h-72 my-2 bg-gray-900 border-slate-700 rounded-lg custom-message' placeholder="Message" name="message"></textarea>
         </div>
-        <button type="submit" class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'><i class="fa-regular fa-paper-plane"></i> Send</button>
+        <button type="submit" class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'>
+            <i class="fa-regular fa-paper-plane"></i> Send
+        </button>
     </form>
 
     <div class='socials text-center md:text-start'>
@@ -42,7 +44,6 @@
         <div class='flex space-x-4 justify-center md:justify-start'>
             <a href="https://twitter.com/yourprofile" class='hover:text-blue-400 transition duration-300'><i class="fab fa-x text-2xl"></i></a>
             <a href="https://instagram.com/yourprofile" class='hover:text-pink-500 transition duration-300'><i class="fab fa-instagram text-2xl"></i></a>
-            <!-- <a href="https://facebook.com/yourprofile" class='hover:text-blue-600 transition duration-300'><i class="fab fa-facebook-f text-2xl"></i></a> -->
             <a href="https://linkedin.com/in/yourprofile" class='hover:text-blue-500 transition duration-300'><i class="fab fa-linkedin-in text-2xl"></i></a>
             <a href="https://github.com/yourprofile" class='hover:text-gray-400 transition duration-300'><i class="fab fa-github text-2xl"></i></a>
         </div>
