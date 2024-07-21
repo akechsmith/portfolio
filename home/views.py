@@ -10,10 +10,19 @@ import random
 import re
 
 # Create your views here.
-def index (request):
+def index(request):
     blogs = Blog.objects.all()
-    random_blogs = random.sample(list(blogs), 3)
-    context = {'random_blogs': random_blogs}
+    blogs_list = list(blogs)
+
+    if len(blogs_list) >= 3:
+        random_blogs = random.sample(blogs_list, 3)
+    else:
+        random_blogs = blogs_list  # If fewer than 3 blogs, use all available blogs
+
+    context = {
+        'random_blogs': random_blogs,
+        'has_blogs': bool(blogs_list)  # This will be True if there are blogs, False otherwise
+    }
     return render(request, 'index.html', context)
 
 def about (request):
