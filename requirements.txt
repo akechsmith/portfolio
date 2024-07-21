@@ -6,6 +6,7 @@ chardet==5.2.0
 charset-normalizer==3.3.2
 click==8.1.7
 cookiecutter==2.6.0
+dj-database-url==2.2.0
 Django==5.0.6
 django-browser-reload==1.13.0
 django-tailwind==3.8.0
@@ -15,6 +16,7 @@ markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
 pillow==10.4.0
+psycopg2-binary==2.9.9
 Pygments==2.18.0
 python-dateutil==2.9.0.post0
 python-slugify==8.0.4
