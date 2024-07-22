@@ -2,6 +2,8 @@ import environ
 import dj_database_url
 from pathlib import Path
 import os
+import django_heroku
+from whitenoise import WhiteNoise
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -119,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Nairobi/Africa"
 
 USE_I18N = True
 
@@ -151,3 +153,5 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+django_heroku.settings(locals())
