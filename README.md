@@ -2,7 +2,7 @@
 
 ## Description
 
-This Django portfolio app is designed to showcase your projects, skills, and experiences in a professional manner. It provides a responsive and customizable interface to highlight your work effectively.
+This Django portfolio app is designed to showcase my projects, skills, and experiences in a professional manner. It provides a responsive and customizable interface to highlight my work effectively.
 
 ## Features
 
