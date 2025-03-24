@@ -74,18 +74,22 @@ TEMPLATES = [
 WSGI_APPLICATION = "django_project.wsgi.application"
 
 # Database configuration
-DATABASE_URL = env("DATABASE_URL", default=None)
+USE_LOCAL_DB = env.bool("USE_LOCAL_DB", default=False)
 
-if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
-    }
-else:
+if USE_LOCAL_DB:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "db.sqlite3",
         }
+    }
+else:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            env("DATABASE_URL", default=""), 
+            conn_max_age=600, 
+            ssl_require=True
+        )
     }
 
 # Password validation
@@ -120,6 +124,3 @@ EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Apply Django-Heroku settings
-django_heroku.settings(locals())
